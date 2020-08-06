@@ -1,0 +1,53 @@
+<div class="container-fluid mb-5">
+  
+  <% if notice.present? %>
+    <div class="container mx-5 mb-4 px-5 text-center">
+      <div class="shadow-lg mx-5  alert alert-warning alert-dismissible fade show border border-info rounded-pill" role="alert" style="background:#d5e4a1;">
+        <strong>ATENCION!</strong> <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  <% end %>    
+
+  <h1 class="text-center" style="text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87">Bebes Nahasapeemapetilon</h1>
+  <br>
+  <div class="row">
+    <div class="col-2">
+    <%= image_tag 'https://i.pinimg.com/originals/a7/e5/62/a7e5629581c59f01409f9d832ad45f71.png', class: '', style: 'width: 250px;' %>
+    </div>
+    <div class="col-2">
+    <%= image_tag 'https://vignette.wikia.nocookie.net/simpsons/images/2/28/Manjula_Nahasapeemapetilon.png/revision/latest?cb=20181212120358&path-prefix=fr', class: '', style: 'width: 250px;' %>
+    </div>
+    <div class="col-6">
+      <table>
+        <thead>
+          <tr class="border-bottom border-info"> 
+          <th colspan="1"></th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">&nbsp;&nbsp;&nbsp;Total de Leche<br> Tomada<br> en la vida</th>
+            <th class="text-center">&nbsp;&nbsp;&nbsp;Total de Tiempo<br> Ocupado<br> en la vida</th>
+            <th colspan="3"></th>            
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @babies.each do |baby| %>
+            <tr class="border-bottom border-info">
+              <td><%= image_tag baby.photo, class: 'image-fluid', style: 'width: 60px;' %></td>
+              <td class="text-center"><%= baby.name %></td>
+              <td class="text-center"><%= baby.total_drinking %></td>
+              <td class="text-center"><%= baby.total_duration %></td>
+              <td><%= link_to 'Ver', baby_path(baby), class:"btn btn-primary rounded-pill"  %></td>              
+              <td><%= link_to 'Eliminar', baby_path(baby), method: :delete, data: { confirm: 'Esta Seguro?' }, class:"btn btn-danger rounded-pill" %></td>
+            </tr>            
+          <% end %>
+        </tbody>
+      </table>      
+    </div>
+    <div class="col-1">
+        <%= link_to 'Nuevo bebe', new_baby_path(@baby), class:"shadow-lg p-3 mb-5 text-center btn btn-secondary rounded-circle border border-white ", style:"box-shadow: 60px -16px teal;" %>
+    </div>
+  </div>
+<div>

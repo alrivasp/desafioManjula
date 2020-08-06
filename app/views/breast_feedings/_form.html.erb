@@ -1,0 +1,29 @@
+<%= form_with(model: [@baby, breast_feeding], local: true) do |form| %>
+  <% if breast_feeding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(breast_feeding.errors.count, "error") %> prohibited this breast_feeding from being saved:</h2>
+
+      <ul>
+      <% breast_feeding.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <div class="field">
+      <%= form.label :duration, class:" text-white", style:"font-size:15px; text-shadow: 0.1em 0.1em 0.05em #333" %>
+      <%= form.number_field :duration %>
+    </div>
+
+    <div class="field">
+      <%= form.label :quantity, class:" text-white", style:"font-size:15px; text-shadow: 0.1em 0.1em 0.05em #333" %>
+      <%= form.number_field :quantity %>
+    </div>
+
+    <div class="actions mt-4">
+      <%= form.submit class:"btn btn-primary rounded-pill border border-white" %>
+    </div>
+  </div>
+<% end %>

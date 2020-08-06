@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="container-fluid p-4 shadow-lg mb-2 border border-info rounded-pill" style="background:#84c760;">
+        <h1 class="text-center text-white mb-3"  style="font-size:25px; text-shadow: 0.1em 0.1em 0.05em #333">Nueva Lactancia</h1>
+        <div class="m-3">
+            <%= render 'form', breast_feeding: @breast_feeding %>
+        </div>
+    </div>
+   
+    <div class="text-center m-5">
+        <%= link_to 'Volver', baby_path(@baby), class:"btn btn-dark rounded-pill border border-white btn-sm" %>    
+    </div>    
+</div>

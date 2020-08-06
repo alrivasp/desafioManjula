@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="container-fluid p-4 shadow-lg mb-2 border border-info rounded-pill" style="background:#84c760;">
+        <h1 class="text-center text-white mb-3"  style="font-size:25px; text-shadow: 0.1em 0.1em 0.05em #333">Editando Bebe</h1>
+        <div class="m-3">
+            <%= render 'form', baby: @baby %>
+        </div>
+    </div>
+   
+    <div class="text-center m-5">
+        <%= link_to 'Ver', @baby, class:"btn btn-dark rounded-pill border border-white btn-sm"%> |
+        <%= link_to 'Home', babies_path, class:"btn btn-dark rounded-pill border border-white btn-sm" %>    
+    </div>    
+</div>
